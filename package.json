@@ -1,22 +1,27 @@
 {
   "name": "ax-test-crm",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
+  "description": "CRM web application - contact, company, and deal management with pipeline visualization",
+  "main": "src/app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node --test 'test/unit/**/*.test.js' && node --test 'test/integration/**/*.test.js' && node --test 'test/scenarios/**/*.test.js'",
+    "test:unit": "node --test 'test/unit/**/*.test.js'",
+    "test:integration": "node --test 'test/integration/**/*.test.js'",
+    "test:scenarios": "node --test 'test/scenarios/**/*.test.js'",
+    "lint": "echo 'No linter configured yet'"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/shootdaj/ax-test-crm.git"
   },
-  "keywords": [],
+  "keywords": ["crm", "sales", "pipeline"],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "dependencies": {
+    "express": "^4.21.0"
+  },
   "bugs": {
     "url": "https://github.com/shootdaj/ax-test-crm/issues"
   },
