@@ -1010,3 +1010,173 @@ tr:last-child td { border-bottom: none; }
 }
 
 .bar-rect:hover { opacity: 0.8; }
+
+/* ============================================
+   Responsive Design — Phase 5
+   ============================================ */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .detail-grid { grid-template-columns: 1fr; }
+  .charts-grid { grid-template-columns: 1fr; }
+  .main-content { padding: 20px 20px; }
+  .pipeline-board { gap: 8px; }
+  .pipeline-column { min-width: 220px; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .sidebar {
+    transform: translateX(-100%);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 60px 16px 16px;
+  }
+
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .table-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .table-search {
+    max-width: 100%;
+  }
+
+  .pipeline-board {
+    flex-direction: column;
+  }
+
+  .pipeline-column {
+    min-width: 100%;
+    max-width: 100%;
+  }
+
+  .profile-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-tags {
+    justify-content: center;
+  }
+
+  .modal {
+    width: 95%;
+    max-height: 90vh;
+  }
+
+  /* Hide less important columns on mobile */
+  th:nth-child(n+4),
+  td:nth-child(n+4) {
+    display: none;
+  }
+
+  .breadcrumb {
+    font-size: 0.75rem;
+  }
+
+  .metric-value {
+    font-size: 1.25rem;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .page-title {
+    font-size: 1.25rem;
+  }
+
+  .metric-card {
+    padding: 14px;
+  }
+
+  .deal-card {
+    padding: 10px;
+  }
+}
+
+/* ---- Enhanced Page Transitions ---- */
+.page-view {
+  animation: pageSlideIn 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes pageSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Smooth transitions for interactive elements */
+.nav-item,
+.deal-card,
+.metric-card,
+.card,
+tr {
+  transition: all 0.15s ease;
+}
+
+.metric-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+
+.card:hover {
+  box-shadow: var(--shadow);
+}
+
+/* Focus visible for accessibility */
+.btn:focus-visible,
+.form-input:focus-visible,
+.form-select:focus-visible,
+.nav-item:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Print styles */
+@media print {
+  .sidebar,
+  .hamburger,
+  .sidebar-overlay,
+  .btn {
+    display: none !important;
+  }
+  .main-content {
+    margin-left: 0;
+  }
+}
