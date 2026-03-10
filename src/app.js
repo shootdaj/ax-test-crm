@@ -36,6 +36,12 @@ app.get('/health', (req, res) => {
 app.use('/api/contacts', require('./routes/contacts'));
 app.use('/api/companies', require('./routes/companies'));
 app.use('/api/deals', require('./routes/deals'));
+app.use('/api/activities', require('./routes/activities'));
+app.use('/api/pipeline', require('./routes/pipeline'));
+app.use('/api/dashboard', require('./routes/dashboard'));
+app.use('/api/search', require('./routes/search'));
+app.use('/api/import', require('./routes/import-export'));
+app.use('/api/export', require('./routes/import-export'));
 
 // Serve static files
 app.use(express.static(path.join(__dirname, '..', 'public')));
