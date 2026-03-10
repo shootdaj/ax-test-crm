@@ -1,8 +1,12 @@
 const express = require('express');
 const path = require('path');
 const errorHandler = require('./middleware/error-handler');
+const { seed } = require('./data/seed');
 
 const app = express();
+
+// Initialize seed data
+seed();
 
 // Middleware
 app.use(express.json({ limit: '1mb' }));
@@ -28,14 +32,10 @@ app.get('/health', (req, res) => {
   });
 });
 
-// API routes (will be added in Phase 2+)
-// app.use('/api/contacts', require('./routes/contacts'));
-// app.use('/api/companies', require('./routes/companies'));
-// app.use('/api/deals', require('./routes/deals'));
-// app.use('/api/activities', require('./routes/activities'));
-// app.use('/api/pipeline', require('./routes/pipeline'));
-// app.use('/api/dashboard', require('./routes/dashboard'));
-// app.use('/api/search', require('./routes/search'));
+// API routes
+app.use('/api/contacts', require('./routes/contacts'));
+app.use('/api/companies', require('./routes/companies'));
+app.use('/api/deals', require('./routes/deals'));
 
 // Serve static files
 app.use(express.static(path.join(__dirname, '..', 'public')));
